@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=elefan
+      - MYSQL_USER=elefan
+      - MYSQL_PASSWORD=elefan
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+
+  app:
+    build: ./Docker/app/
+    volumes:
+      - "${ELEFAN_APP:-../gestion-compte}:/app"
+
+  nginx:
+    image: nginx:1.15-alpine
+    volumes:
+      - "${ELEFAN_APP:-../gestion-compte}:/app"
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+      - "./nginx/sites-enabled/default.conf:/etc/nginx/sites-enabled/default.conf"
+    ports:
+      - "8080:80"
+

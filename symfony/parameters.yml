@@ -1,0 +1,73 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: mysql
+    database_port: 3306
+    database_name: elefan
+    database_user: elefan
+    database_password: elefan
+    super_admin.username: admin
+    super_admin.initial_password: password
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_port: 25
+    mailer_user: null
+    mailer_password: null
+    mailer_encryption: null
+    transactional_mailer_user: contact@yourcoop.local
+    transactional_mailer_user_name: 'espace membre'
+    emails.base_domain: yourcoop.local
+    emails.contact:
+        from_name: 'Contact Localcoop'
+        address: contact@yourcoop.local
+    emails.member:
+        from_name: 'Membres Localcoop'
+        address: membres@yourcoop.local
+    emails.shift:
+        from_name: 'Créneaux Localcoop'
+        address: creneaux@yourcoop.local
+    emails.formation:
+        from_name: 'Formation Localcoop'
+        address: formations@yourcoop.local
+    emails.admin:
+        from_name: 'Admin Localcoop'
+        address: admin@yourcoop.local
+    emails.noreply:
+        from_name: 'Ne pas répondre'
+        address: noreply@yourcoop.local
+    emails.sendable:
+        - '%emails.contact%'
+        - '%emails.member%'
+        - '%emails.shift%'
+        - '%emails.formation%'
+        - '%emails.admin%'
+        - '%emails.noreply%'
+    shift_mailer_user: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    router.request_context.host: membres.yourcoop.local
+    router.request_context.scheme: https
+    router.request_context.base_url: null
+    site_name: 'Espace membre @ MyLocalCoop'
+    project_name: 'My Local Coop'
+    project_url: 'https://yourcoop.local/'
+    project_url_display: yourcoop.local
+    main_color: null
+    local_currency_name: 'monnaie locale'
+    place_local_ip_address: '127.0.0.1,192.168.0.x'
+    wiki_keys_url: null
+    registration_duration: '1 year'
+    helloasso_registration_campaign_url: 'https://www.helloasso.com/associations/my-local-coop/adhesions/re-adhesion'
+    helloasso_api_key: null
+    helloasso_api_password: null
+    due_duration_by_cycle: 180
+    min_shift_duration: 90
+    cycle_duration: '28 days'
+    maximum_nb_of_beneficiaries_in_membership: 2
+    swipe_cards.autoactivate.enabled: false
+    logging.mattermost.enabled: false
+    logging.mattermost.level: critical
+    logging.mattermost.url: 'http://mattermost.yourcoop.local'
+    logging.mattermost.channel: null
+    logging.swiftmailer.enabled: false
+    logging.swiftmailer.level: critical
+    logging.swiftmailer.recipient: null
+    new_users_start_as_beginner: true
