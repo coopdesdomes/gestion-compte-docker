@@ -8,7 +8,11 @@ else
 	ELEFAN_APP_DIR = $(ELEFAN_APP)
 endif
 
-bootstrap:
+# -- Rules
+default: help
+
+.PHONY: bootstrap
+bootstrap: ## installe et configure gestion-compte application
 	$(COMPOSE) build
 	$(COMPOSE) up -d
 	cp symfony/parameters.yml $(ELEFAN_APP_DIR)/app/config/parameters.yml
@@ -16,5 +20,15 @@ bootstrap:
 	$(COMPOSE_RUN_APP) composer install
 	$(COMPOSE_RUN_APP) php bin/console doctrine:migration:migrate
 
+.PHONY: run
+run: ## Démarre tous les containers docker
+	$(COMPOSE) up -d
 
+.PHONY: stop
+stop: ## Arrête tous les containers docker
+	$(COMPOSE) stop
+
+.PHONY: help
+help:
+	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
