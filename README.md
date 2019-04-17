@@ -2,7 +2,7 @@
 
 Ce repo contient la configuration permettant de faire fonctionner [gestion-compte](https://github.com/elefan-grenoble/gestion-compte) avec docker.
 
-[gestion-compte](https://github.com/elefan-grenoble/gestion-compte) est l'application développé par l'épicerie coopérative l'éléfan de Grenoble.
+[gestion-compte](https://github.com/elefan-grenoble/gestion-compte) est l'application développée par l'épicerie coopérative l'éléfan de Grenoble.
 Elle permet la gestion des adhérents.
 
 ## Installation
