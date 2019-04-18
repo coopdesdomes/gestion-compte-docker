@@ -13,6 +13,8 @@ services:
     build: ./Docker/app/
     volumes:
       - "${ELEFAN_APP:-../gestion-compte}:/app"
+    environment:
+      - DEV_MODE_ENABLED=1
 
   nginx:
     image: nginx:1.15-alpine

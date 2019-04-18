@@ -16,7 +16,6 @@ bootstrap: ## installe et configure gestion-compte application
 	$(COMPOSE) build
 	$(COMPOSE) up -d
 	cp symfony/parameters.yml $(ELEFAN_APP_DIR)/app/config/parameters.yml
-	cp symfony/app_dev.php $(ELEFAN_APP_DIR)/web
 	$(COMPOSE_RUN_APP) dockerize -wait tcp://mysql:3306 -timeout 60s
 	$(COMPOSE_RUN_APP) composer install
 	$(COMPOSE_RUN_APP) php bin/console doctrine:migration:migrate
