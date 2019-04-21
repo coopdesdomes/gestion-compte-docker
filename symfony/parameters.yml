@@ -43,13 +43,13 @@ parameters:
         - '%emails.noreply%'
     shift_mailer_user: null
     secret: ThisTokenIsNotSoSecretChangeIt
-    router.request_context.host: membres.yourcoop.local
-    router.request_context.scheme: https
+    router.request_context.host: localhost
+    router.request_context.scheme: http
     router.request_context.base_url: null
     site_name: 'Espace membre @ MyLocalCoop'
     project_name: 'My Local Coop'
-    project_url: 'https://yourcoop.local/'
-    project_url_display: yourcoop.local
+    project_url: 'http://localhost:8080'
+    project_url_display: localhost:8080
     main_color: null
     local_currency_name: 'monnaie locale'
     place_local_ip_address: '127.0.0.1,192.168.0.x'
