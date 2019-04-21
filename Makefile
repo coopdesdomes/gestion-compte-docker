@@ -1,6 +1,7 @@
 COMPOSE              = docker-compose
 COMPOSE_RUN          = $(COMPOSE) run --rm
 COMPOSE_RUN_APP = $(COMPOSE_RUN) app
+CONSOLE = $(COMPOSE_RUN_APP) php bin/console
 
 ifeq ($(strip $(ELEFAN_APP)),)
 	ELEFAN_APP_DIR = ../gestion-compte
@@ -18,7 +19,7 @@ bootstrap: ## installe et configure gestion-compte application
 	cp symfony/parameters.yml $(ELEFAN_APP_DIR)/app/config/parameters.yml
 	$(COMPOSE_RUN_APP) dockerize -wait tcp://mysql:3306 -timeout 60s
 	$(COMPOSE_RUN_APP) composer install
-	$(COMPOSE_RUN_APP) php bin/console doctrine:migration:migrate
+	$(CONSOLE) doctrine:migration:migrate
 
 .PHONY: run
 run: ## Démarre tous les containers docker
@@ -27,6 +28,18 @@ run: ## Démarre tous les containers docker
 .PHONY: stop
 stop: ## Arrête tous les containers docker
 	$(COMPOSE) stop
+
+.PHONY: migrate
+migrate: ## Joue les migrations de la base de données
+	$(COMPOSE_RUN_APP) dockerize -wait tcp://mysql:3306 -timeout 60s
+	$(CONSOLE) doctrine:migration:migrate
+
+.PHONY: superuser
+superuser: ## Crée un utilisateur admin
+	$(CONSOLE) fos:user:create --super-admin
+
+clear-cache: ## Supprime le cache de l'application symfony
+	$(CONSOLE) c:c
 
 .PHONY: help
 help:

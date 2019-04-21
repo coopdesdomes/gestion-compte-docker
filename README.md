@@ -46,3 +46,12 @@ Si je souhaite supprimer le cache, je vais exécuer la commande suivante :
 ```bash
 $ docker-compose exec app php bin/console cache:clear
 ```
+
+## Makefile
+
+Un `Makefile` est mis à disposition avec quelques commandes qui vous faciliterons la vie.
+Pour connaître les commandes disponibles:
+
+```
+$ make help
+```
