@@ -25,3 +25,8 @@ services:
     ports:
       - "8080:80"
 
+  smtp:
+        image: mailhog/mailhog
+        ports:
+          - "8025:8025"
+

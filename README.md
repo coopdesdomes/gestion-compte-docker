@@ -55,3 +55,8 @@ Pour connaître les commandes disponibles:
 ```
 $ make help
 ```
+
+## Mail catcher
+
+Un mail catcher est mis en place et disponible à l'adresse http://localhost:8025
+Tous les mails qui partent de l'application sont enregistrés dans ce mail catcher et consultable soit pour debug soit pour éviter un envoie non voulu à de vrais utilisateurs.
