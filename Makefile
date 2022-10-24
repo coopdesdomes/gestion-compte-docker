@@ -17,7 +17,7 @@ bootstrap: ## installe et configure gestion-compte application
 	$(COMPOSE) build
 	$(COMPOSE) up -d
 	cp symfony/parameters.yml $(ELEFAN_APP_DIR)/app/config/parameters.yml
-	$(COMPOSE_RUN_APP) dockerize -wait tcp://mysql:3306 -timeout 60s
+	$(COMPOSE_RUN) dockerize -wait tcp://mysql:3306 -timeout 60s
 	$(COMPOSE_RUN_APP) composer install
 	$(CONSOLE) doctrine:migration:migrate
 
@@ -31,7 +31,7 @@ stop: ## Arrête tous les containers docker
 
 .PHONY: migrate
 migrate: ## Joue les migrations de la base de données
-	$(COMPOSE_RUN_APP) dockerize -wait tcp://mysql:3306 -timeout 60s
+	$(COMPOSE_RUN) dockerize -wait tcp://mysql:3306 -timeout 60s
 	$(CONSOLE) doctrine:migration:migrate
 
 .PHONY: superuser

@@ -7,7 +7,7 @@ services:
       - MYSQL_DATABASE=elefan
       - MYSQL_USER=elefan
       - MYSQL_PASSWORD=elefan
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=root
 
   app:
     build: ./Docker/app/
@@ -26,7 +26,9 @@ services:
       - "8080:80"
 
   smtp:
-        image: mailhog/mailhog
-        ports:
-          - "8025:8025"
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
 
+  dockerize:
+    image: jwilder/dockerize
